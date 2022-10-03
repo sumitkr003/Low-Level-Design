@@ -22,3 +22,19 @@ Ex - For the above case, we build the product object in multiple stages.
 ### UML Diagram
 ![builder uml diagram](../resources/images/builderUML.png)
 
+### Implementation Consideration
+- we can easily create an immutable class by implementing builder as inner static class. This type of implementation is very common and is used even when we do not need immutability. This is a good code practice to declare builder in the same class.
+- The director role is rarely implemented. Usually, the consumer of object instance or client handles this role
+
+### Applicability
+- Use builder patter to get rid of telescoping constructor
+```java
+public class Product {
+    Product(long productId);
+    Product(long productId, String name);
+    Product(long productId, String name, string description);
+    //.....
+}
+```
+- Use the Builder pattern when you want your code to be able to create different representations of some product.
+- Use the Builder to construct Composite trees or other complex objects.

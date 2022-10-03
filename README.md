@@ -3,6 +3,7 @@
 ### Basics
 - [Solid Principles](./SolidPrinciples/SolidPrinciples.md)
 - [Design Patterns Overview](./DesignPatterns/DesignPatterns.md)
+- [Builder Design Pattern](./DesignPatterns/Builder.md) with [implementation](./implementation/builder)
 
 ### Problems
 
