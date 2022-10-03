@@ -218,3 +218,73 @@ public class Square implements Shape {
 
 // now that square and rectangle does not have a direct relationship, the above example follows Liskov Substitution principle.
 ```
+
+- ### Interface Segregation Principle
+  - Clients should not be forces to depend upon interfaces that they do not use.
+  - **Interface Pollution** : We should not have large interfaces that have unrelated methods.
+  - Signs of Interface Pollution, because the class might not need these actual methods, you'll see these common patterns which violates interface segregation principle:
+      1. Classes have empty method implementation
+      2. Methods implementations throw unsupported operation exception
+      3. Mehtods implementations returns null or dummy value.
+  - Write highly cohesive interfaces.
+
+```java
+public abstract class Entity {
+    private string id;
+    // getter and setters
+}
+
+public interface PersistenceService<T extends Entity> {
+    public void save(T entity);
+    public void findByName(string name);
+}
+
+public interface UserPersistenceService implements PersistenceService<User>{
+    @Override
+    public void save(User entity){
+        // save user
+    }
+    
+    @Override
+    public void findByName(string name){
+        // get user by name
+    }
+} 
+
+public interface OrderPersistenceService implements PersistenceService<Order>{
+    @Override
+    public void save(Order entity){
+      // save Order
+    }
+  
+    // It does not make sense that any order will have a name. Therefore, we'll need to throw unsupported operation exception
+    // Now this becomes classic case of violation of interface segregation principle
+    @Override
+    public void findByName(string name){
+      throw UnsupportedOperationException("find by name method is not supported");
+    }
+}
+
+// To fix this simply remove findByName method from PersistenceService interface as not all class will have find by name method.
+public interface PersistenceService<T extends Entity> {
+  public void save(T entity);
+}
+
+public interface UserPersistenceService implements PersistenceService<User>{
+  @Override
+  public void save(User entity){
+    // save user
+  }
+
+  public void findByName(string name){
+    // get user by name
+  }
+}
+
+public interface OrderPersistenceService implements PersistenceService<Order>{
+  @Override
+  public void save(Order entity){
+    // save Order
+  }
+}
+```
