@@ -2,9 +2,9 @@
 
 SOLID is an acronym for the first five object-oriented design (OOD) principles by Robert C. Martin 
 
-- ### Single Responsibility principle
-  - There should never be more than one reason for a class to change. \
-    A class should only provide focused, specific, single functionality. 
+1. ### Single Responsibility principle
+   - There should never be more than one reason for a class to change. \
+     A class should only provide focused, specific, single functionality. 
   
 ```java
 // Assume there is a user controller which is response for creating/updating/deleting a user
@@ -51,8 +51,8 @@ public class UserPersistenceService {
 }
 ```
 
-- ### Open Closed Principle
-  - Sofware entities (Classes, Modules, methods) should be open for extension (extend existence behaviour) but closed for modification (existing code remains unchanged)
+2. ### Open Closed Principle
+   - Sofware entities (Classes, Modules, methods) should be open for extension (extend existence behaviour) but closed for modification (existing code remains unchanged)
   
 ```java
 // Assume we are writing code for a telephone company that provides two types for services - phone and ISP
@@ -109,10 +109,10 @@ public class ISPSubscriber extends  Subscriber {
 // Now above example follows open closed principle.
 ```
 
-- ### Liskov Substitution principle
-  - This states that "We should be able to substitute base class object with child class objects without altering the behaviour/characteristics of the program".\
-  Note: The behaviour of the program should also remain same. (This is not language specific)
-  - This is violated when child class completely modifies the contract/behaviour of base class method by overriding it.
+3. ### Liskov Substitution principle
+   - This states that "We should be able to substitute base class object with child class objects without altering the behaviour/characteristics of the program".\
+   Note: The behaviour of the program should also remain same. (This is not language specific)
+   - This is violated when child class completely modifies the contract/behaviour of base class method by overriding it.
 ```java
 // Base/Parent Class
 public class Rectangle {
@@ -220,14 +220,14 @@ public class Square implements Shape {
 // now that square and rectangle does not have a direct relationship, the above example follows Liskov Substitution principle.
 ```
 
-- ### Interface Segregation Principle
-  - Clients should not be forces to depend upon interfaces that they do not use.
-  - **Interface Pollution** : We should not have large interfaces that have unrelated methods.
-  - Signs of Interface Pollution, because the class might not need these actual methods, you'll see these common patterns which violates interface segregation principle:
-      1. Classes have empty method implementation
-      2. Methods implementations throw unsupported operation exception
-      3. Mehtods implementations returns null or dummy value.
-  - Write highly cohesive interfaces.
+4. ### Interface Segregation Principle
+   - Clients should not be forces to depend upon interfaces that they do not use.
+   - **Interface Pollution** : We should not have large interfaces that have unrelated methods.
+   - Signs of Interface Pollution, because the class might not need these actual methods, you'll see these common patterns which violates interface segregation principle:
+       1. Classes have empty method implementation
+       2. Methods implementations throw unsupported operation exception
+       3. Mehtods implementations returns null or dummy value.
+   - Write highly cohesive interfaces.
 
 ```java
 public abstract class Entity {
@@ -290,9 +290,9 @@ public interface OrderPersistenceService implements PersistenceService<Order>{
 }
 ```
 
-- ### Dependency Inversion Principle
-  - High Level modules (a module that provides or implements business logic) should not depend on low level modules (a  functionality/module that can be used anywhere, this is independent from business logc). Both should depend upon abstraction.
-  - Abstraction should not depend upon details. Details should depend upon abstraction
+5. ### Dependency Inversion Principle
+   - High Level modules (a module that provides or implements business logic) should not depend on low level modules (a  functionality/module that can be used anywhere, this is independent from business logc). Both should depend upon abstraction.
+   - Abstraction should not depend upon details. Details should depend upon abstraction
 
 ```java
 import java.io.FileWriter;

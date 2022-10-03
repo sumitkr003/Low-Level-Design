@@ -1,10 +1,12 @@
-# Low-Level-Design
+## Low-Level-Design
 
-## Basics
+### Basics
+- [Solid Principles](./SolidPrinciples/SolidPrinciples.md)
+- [Design Patterns Overview](./DesignPatterns/DesignPatterns.md)
 
-## Problems
+### Problems
 
-| Problem | Solution | Code
-| :---: | :---: | :---:
-| Design a Parking Lot | [solution](./Problems/Design%20a%20Parking%20Lot/Readme.md) | Code
-| Design a Library Management System | [solution](./Problems/Design%20a%20Library%20Management%20System/Readme.md) | [Code](./Problems/Design%20a%20Library%20Management%20System/code.md)
+|              Problem               |                                  Solution                                   |                                 Code                                  |
+|:----------------------------------:|:---------------------------------------------------------------------------:|:---------------------------------------------------------------------:|
+|        Design a Parking Lot        |         [solution](./Problems/Design%20a%20Parking%20Lot/Readme.md)         |                                 Code                                  |
+| Design a Library Management System | [solution](./Problems/Design%20a%20Library%20Management%20System/Readme.md) | [Code](./Problems/Design%20a%20Library%20Management%20System/code.md) |
