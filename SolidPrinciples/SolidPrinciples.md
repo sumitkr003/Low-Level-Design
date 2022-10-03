@@ -112,6 +112,7 @@ public class ISPSubscriber extends  Subscriber {
 - ### Liskov Substitution principle
   - This states that "We should be able to substitute base class object with child class objects without altering the behaviour/characteristics of the program".\
   Note: The behaviour of the program should also remain same. (This is not language specific)
+  - This is violated when child class completely modifies the contract/behaviour of base class method by overriding it.
 ```java
 // Base/Parent Class
 public class Rectangle {
@@ -287,4 +288,77 @@ public interface OrderPersistenceService implements PersistenceService<Order>{
     // save Order
   }
 }
+```
+
+- ### Dependency Inversion Principle
+  - High Level modules (a module that provides or implements business logic) should not depend on low level modules (a  functionality/module that can be used anywhere, this is independent from business logc). Both should depend upon abstraction.
+  - Abstraction should not depend upon details. Details should depend upon abstraction
+
+```java
+import java.io.FileWriter;
+
+public class Main {
+  public static void main(String[] args) throws IOException {
+    Message msg = new Message("This is a message again");
+    MessagePrinter printer = new MessagePrinter();
+    printer.writeMessage(msg, "test_msg.txt");
+  }
+}
+
+public class MessagePrinter {
+  //Writes message to a file
+  public void writeMessage(Message msg, String fileName) throws IOException {
+    Formatter formatter = new JSONFormatter();//creates formatter
+    try (PrintWriter writer = new PrintWriter(new FileWriter(fileName))) { //creates print writer
+      writer.println(formatter.format(msg)); //formats and writes message
+      writer.flush();
+    }
+  }
+}
+
+//Common interface for classes formatting Message object
+public interface Formatter {
+  public String format(Message message) throws FormatException;
+}
+
+//Formats message to JSON format
+public class JSONFormatter implements Formatter {
+  public String format(Message message) throws FormatException {
+    ObjectMapper mapper = new ObjectMapper();
+    try {
+      return mapper.writeValueAsString(message);
+    } catch (JsonProcessingException e) {
+      e.printStackTrace();
+      throw new FormatException(e);
+    }
+  }
+}
+
+// Now, if we want to write message to json file or to print in console, we'll need to change this method again
+// Here, we can clearly see that MessagePrinter (High level class - which has business logic) is dependent on JSONFormatter and FileWriter(low level module/class)
+
+// Instead we can modify this to follow dependency inversion principle.
+public class Main {
+  public static void main(String[] args) throws IOException {
+    Message msg = new Message("This is a new message");
+    MessagePrinter printer = new MessagePrinter();
+    try (PrintWriter writer = new PrintWriter(System.out)) {
+      printer.writeMessage(msg, new JSONFormatter(), writer);
+    }
+    try (PrintWriter writer = new PrintWriter(new FileWriter("test_msg.txt"))) {
+      printer.writeMessage(msg, new JSONFormatter(), writer);
+    }
+  }
+}
+
+public class MessagePrinter {
+  //Writes message to a file
+  public void writeMessage(Message msg, Formatter formatter, PrintWriter writer) throws IOException {
+    writer.println(formatter.format(msg)); //formats and writes message
+    writer.flush();
+  }
+}
+
+// This example follows dependency inversion i.e., we are nor creating dependencies. Our MessagePrinter is not dependent on anything. 
+// Instead, someone else is creating those dependencies and passing them to out MessagePrinter
 ```
