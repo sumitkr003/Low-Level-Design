@@ -4,6 +4,7 @@
 - [Solid Principles](./SolidPrinciples/SolidPrinciples.md)
 - [Design Patterns Overview](./DesignPatterns/DesignPatterns.md)
 - [Builder Design Pattern](./DesignPatterns/Builder.md) with [implementation](./implementation/builder)
+- [Singleton Design Patter](./DesignPatterns/Singleton.md) with [implementation](./implementation/singleton)
 
 ### Problems
 
