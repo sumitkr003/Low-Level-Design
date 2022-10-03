@@ -3,7 +3,7 @@
 SOLID is an acronym for the first five object-oriented design (OOD) principles by Robert C. Martin 
 
 - ### Single Responsibility principle
-  - There should never be more than one reason for a class to change. 
+  - There should never be more than one reason for a class to change. \
     A class should only provide focused, specific, single functionality. 
   
 ```java
@@ -109,12 +109,112 @@ public class ISPSubscriber extends  Subscriber {
 // Now above example follows open closed principle.
 ```
 
+- ### Liskov Substitution principle
+  - This states that "We should be able to substitute base class object with child class objects without altering the behaviour/characteristics of the program".\
+  Note: The behaviour of the program should also remain same. (This is not language specific)
+```java
+// Base/Parent Class
+public class Rectangle {
 
+	private int width;
+	
+	private int height;
 
+	public Rectangle(int width, int height) {
+		this.width = width;
+		this.height = height;
+	}
+    // getter and setters
+	public int computeArea() {
+		return width * height;
+	}
+}
 
+// Dervied/Child Class
+public class Square extends Rectangle {
 
+  public Square(int side) {
+    super(side, side);
+  }
 
+  @Override
+  public void setWidth(int width) {
+    setSide(width);
+  }
 
+  @Override
+  public void setHeight(int height) {
+    setSide(height);
+  }
 
+  public void setSide(int side) {
+    super.setWidth(side);
+    super.setHeight(side);
+  }
 
+}
 
+public class Main {
+
+  public static void main(String[] args) {
+
+    Rectangle rectangle = new Rectangle(10, 20);
+    System.out.println(rectangle.computeArea());
+
+    Square square = new Square(10);
+    System.out.println(square.computeArea());
+
+    useRectangle(rectangle);
+    // Acc to liskov principle, we can use child class object for base class object. 
+    // Therefore, we should be able to pass square but that is not the case.
+    // So, it is violating Liskov substitution rule
+    useRectangle(square);
+
+  }
+
+  private static void useRectangle(Rectangle rectangle) {
+    rectangle.setHeight(20);
+    rectangle.setWidth(30);
+    assert rectangle.getHeight() == 20 : "Height Not equal to 20";
+    assert rectangle.getWidth() == 30 : "Width Not equal to 30";
+  }
+}
+
+// Let's modify the above example to follow Liskov Substitution rule.
+public interface Shape {
+  public int computeArea();
+}
+
+public class Rectangle implements Shape {
+  private int width;
+  private int height;
+
+  public Rectangle(int width, int height) {
+    this.width = width;
+    this.height = height;
+  }
+  // getter and setters
+  @Override
+  public int computeArea() {
+    return width * height;
+  }
+}
+
+public class Square implements Shape {
+    private int side;
+    
+    public Square(int side) {
+        this.side = side;
+    }
+    
+    public int getSide() {
+        return this.side;
+    }
+    
+    public int setSide(int side) {
+        this.side = side;
+    }
+}
+
+// now that square and rectangle does not have a direct relationship, the above example follows Liskov Substitution principle.
+```
