@@ -50,3 +50,71 @@ public class UserPersistenceService {
     }
 }
 ```
+
+- ### Open Closed Principle
+  - Sofware entities (Classes, Modules, methods) should be open for extension (extend existence behaviour) but closed for modification (existing code remains unchanged)
+  
+```java
+// Assume we are writing code for a telephone company that provides two types for services - phone and ISP
+public class PhoneSubscriber {
+    private Long id;
+    private Long phoneNumber;
+    private int baseRate;
+    private String address;
+    
+    public double calculatePhoneBill() {
+        // Calculate phone usage and using that calculate the bill
+    }
+}
+
+public class ISPSubscriber {
+  private Long id;
+  private Long phoneNumber;
+  private int baseRate;
+  private String address;
+  private Long freeUsage;
+
+  public double calculateInternetBill() {
+    // Calculate internet usage and using (actual usage - free usage), calculate the bill
+  }
+}
+// We can see that there is some common code which can be reused by both subscribers
+
+// Base Class - closed for modification
+public class Subscriber {
+    protected Long id;
+    protected Long phoneNumber;
+    protected int baseRate;
+    protected String address;
+    
+    // calculateBill is open for extension 
+    public abstract double calculateBill();
+}
+
+public class PhoneSubscriber extends Subscriber {
+    @Override
+    public abstract double calculateBill() {
+      // Calculate phone usage and using that calculate the bill
+    }
+}
+
+public class ISPSubscriber extends  Subscriber {
+    private Long freeUsage;
+    @Override
+    public abstract double calculateBill() {
+      // Calculate internet usage and using (actual usage - free usage), calculate the bill
+    }
+}
+
+// Now above example follows open closed principle.
+```
+
+
+
+
+
+
+
+
+
+
