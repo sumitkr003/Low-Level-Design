@@ -8,7 +8,7 @@
 - [Factory] with [Implementation]
 - [Adapter](./DesignPatterns/Adapter.md) with [Implementation](./implementation/adapter)
 - [Decorator](./DesignPatterns/Decorator.md) with [Implementation](./implementation/decorator)
-- [Facade] with [Implementation]
+- [Facade](./DesignPatterns/Facade.md) with [Implementation](./implementation/facade)
 - [Chain of responsibility] with [Implementation]
 - [Observer] with [Implementation]
 - [Strategy] with [Implementation]
