@@ -7,7 +7,7 @@
 - [Singleton Design Patter](./DesignPatterns/Singleton.md) with [implementation](./implementation/singleton)
 - [Factory] with [Implementation]
 - [Adapter](./DesignPatterns/Adapter.md) with [Implementation](./implementation/adapter)
-- [Decorator] with [Implementation]
+- [Decorator](./DesignPatterns/Decorator.md) with [Implementation](./implementation/decorator)
 - [Facade] with [Implementation]
 - [Chain of responsibility] with [Implementation]
 - [Observer] with [Implementation]
