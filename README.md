@@ -6,7 +6,7 @@
 - [Builder Design Pattern](./DesignPatterns/Builder.md) with [implementation](./implementation/builder)
 - [Singleton Design Patter](./DesignPatterns/Singleton.md) with [implementation](./implementation/singleton)
 - [Factory] with [Implementation]
-- [Adapter] with [Implementation]
+- [Adapter](./DesignPatterns/Adapter.md) with [Implementation](./implementation/adapter)
 - [Decorator] with [Implementation]
 - [Facade] with [Implementation]
 - [Chain of responsibility] with [Implementation]
