@@ -5,6 +5,13 @@
 - [Design Patterns Overview](./DesignPatterns/DesignPatterns.md)
 - [Builder Design Pattern](./DesignPatterns/Builder.md) with [implementation](./implementation/builder)
 - [Singleton Design Patter](./DesignPatterns/Singleton.md) with [implementation](./implementation/singleton)
+- [Factory] with [Implementation]
+- [Adapter] with [Implementation]
+- [Decorator] with [Implementation]
+- [Facade] with [Implementation]
+- [Chain of responsibility] with [Implementation]
+- [Observer] with [Implementation]
+- [Strategy] with [Implementation]
 
 ### Problems
 
