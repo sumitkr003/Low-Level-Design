@@ -11,7 +11,7 @@
 - [Facade](./DesignPatterns/Facade.md) with [Implementation](./implementation/facade)
 - [Chain of responsibility](./DesignPatterns/ChainOfResponsibility.md) with [Implementation](./implementation/chainOfResponsibility)
 - [Observer](./DesignPatterns/Observer.md) with [Implementation](./implementation/observer)
-- [Strategy] with [Implementation]
+- [Strategy](./DesignPatterns/Strategy.md) with [Implementation](./implementation/strategy)
 
 ### Problems
 
