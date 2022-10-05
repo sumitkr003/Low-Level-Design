@@ -9,7 +9,7 @@
 - [Adapter](./DesignPatterns/Adapter.md) with [Implementation](./implementation/adapter)
 - [Decorator](./DesignPatterns/Decorator.md) with [Implementation](./implementation/decorator)
 - [Facade](./DesignPatterns/Facade.md) with [Implementation](./implementation/facade)
-- [Chain of responsibility] with [Implementation]
+- [Chain of responsibility](./DesignPatterns/ChainOfResponsibility.md) with [Implementation](./implementation/chainOfResponsibility)
 - [Observer] with [Implementation]
 - [Strategy] with [Implementation]
 

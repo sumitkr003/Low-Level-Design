@@ -13,3 +13,19 @@ Also, each handler will have it's own functionality. If request format is correc
 
 ### UML 
 ![chain of responsibility uml](../resources/images/ChainOfResponsibilityUML.png)
+
+### Implementation Considerations
+- Prefer defining handler as interface as it allows you to implement chain of responsibility without worrying about single inheritance rule of java
+- Chain can be described by using XML or JSON as well so that you can add and remove handlers from chain without modifying code.
+
+### Applicability
+- Use the Chain of Responsibility pattern when your program is expected to process different kinds of requests in various ways, but the exact types of requests and their sequences are unknown beforehand.
+- Use the pattern when it’s essential to execute several handlers in a particular order.
+- Use the pattern when the set of handlers and their order are supposed to change at runtime.
+
+### Pros and Cons
+|                                                           Pros                                                           |                                                            Cons                                                            |
+|:------------------------------------------------------------------------------------------------------------------------:|:--------------------------------------------------------------------------------------------------------------------------:|
+|                                      You can control the order of request handling.                                      | Some requests may end up unhandled. |
+| *Single Responsibility Principle*. You can decouple classes that invoke operations from classes that perform operations. ||
+|     *Open/Closed Principle*. You can introduce new handlers into the app without breaking the existing client code.      ||
