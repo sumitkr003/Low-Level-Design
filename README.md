@@ -10,7 +10,7 @@
 - [Decorator](./DesignPatterns/Decorator.md) with [Implementation](./implementation/decorator)
 - [Facade](./DesignPatterns/Facade.md) with [Implementation](./implementation/facade)
 - [Chain of responsibility](./DesignPatterns/ChainOfResponsibility.md) with [Implementation](./implementation/chainOfResponsibility)
-- [Observer] with [Implementation]
+- [Observer](./DesignPatterns/Observer.md) with [Implementation](./implementation/observer)
 - [Strategy] with [Implementation]
 
 ### Problems
